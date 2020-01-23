@@ -1,7 +1,5 @@
 package main
 
-import "C"
-
 import (
 	"fmt"
 	"io/ioutil"
@@ -129,7 +127,6 @@ func start() (chan string, chan string) { //функция вернет кана
 	return c, inp
 }
 
-//export ParserInit
 func ParserInit(workers int, dup_to_stop int, days int) {
 	WORKERS = workers
 	DUP_TO_STOP = dup_to_stop
@@ -152,4 +149,6 @@ func ParserInit(workers int, dup_to_stop int, days int) {
 	}
 }
 
-func main() {}
+func main() {
+	ParserInit(3, 200, 10)
+}
